@@ -1,0 +1,61 @@
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+
+.container {
+  position: relative;
+  color: white;
+}
+
+.dropdown {
+width: 100%;
+}
+
+.lgc-bg {
+    background-color: rgb(242, 242, 242);
+}
+.lgc-bg-inverse {
+    background-color: rgb(22, 50, 92);
+}
+
+/*------------------ Changes---------------------- */
+
+.carousel{
+  width: 80%;
+  margin: auto;
+}
+
+.picklist-container{
+  justify-content: center;
+  padding: 5px;
+  padding-bottom: 20px;
+  width: 80%;
+  margin: auto;
+  
+}
+
+.button-container{
+  padding: auto;
+}
+
+.button{
+  margin: 1px;
+}
+.slds-grid_align-end
+{
+    text-align: left; 
+}

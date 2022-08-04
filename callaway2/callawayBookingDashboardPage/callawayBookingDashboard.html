@@ -1,0 +1,12 @@
+<template>
+<lightning-card  variant="Narrow"  title={welcomeUser} icon-name="standard:account">
+    <p class="slds-p-horizontal_small">Booking Details</p>
+     <lightning-datatable
+        key-field="id"
+        data={BookingDetails}
+        columns={Bookingcolumns} 
+        hide-checkbox-column="true"
+        >
+    </lightning-datatable>
+</lightning-card>
+</template>

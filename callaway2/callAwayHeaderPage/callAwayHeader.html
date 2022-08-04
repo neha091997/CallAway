@@ -1,0 +1,35 @@
+<template>
+<lightning-card>
+    <div style="margin-left:1000px;">
+    <template if:true={isLoggedIn}>
+    <h1 class="capital"> Welcome <b>{uName}</b></h1>
+    </template>
+    </div>
+    <div class="header">
+<!-- <a href="#default" class="logo"><img src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/082014/2011callawaylogo.png?itok=fcFpcbr4" ></img></a> -->
+<a href="#default" class="logo"><img src={CallAwayLogo} ></img></a>
+
+</br>
+<div class="header-right">
+    
+<a class="active" href="https://enphasecom-developer-edition.ap16.force.com/CallAwayEmergencies/s/">Home</a>
+<a href="https://enphasecom-developer-edition.ap16.force.com/CallAwayEmergencies/s/" class="contact">Contact</a>
+<a href="https://enphasecom-developer-edition.ap16.force.com/CallAwayEmergencies/s/" class="about1">About</a>
+<!--<a class="doctor" href="https://www.salesforce.com/login">Doctor's Appointment </a>
+<a class="enemities" href="https://www.trailhead.com">Get Enemities </a> -->
+<!-- <a class="partnerlogin" href="https://enphasecom-developer-edition.ap16.force.com/CallAwayEmergency/partnerlogin"> Partner Login</a> -->
+<!--<a class="ambulance" href="https://www.google.com">Book An Ambulance </a> -->
+<template if:false={isLoggedIn}>
+ <!-- <lightning-button variant="base"  label="Log In" alternative-text="LogIn" icon-name="utility:login" onclick={getLogin}></lightning-button>  -->
+<a class="LogIn" href="https://enphasecom-developer-edition.ap16.force.com/CallAwayEmergencies/s/login">Log In</a>
+</template>
+<template if:true={isLoggedIn}>
+    <a class="dashboard" href="https://enphasecom-developer-edition.ap16.force.com/CallAwayEmergencies/s/custdashboard">Booking Dashboard</a>&nbsp;
+<!-- <lightning-button variant="base" label="Log Out" icon-name="utility:logout" alternative-text="LogOut" onclick={getLogout}></lightning-button> -->
+<a class="Logout" href="https://enphasecom-developer-edition.ap16.force.com/secur/logout.jsp?retUrl=/CallAwayEmergencies/s">Log Out</a>
+
+</template>
+</div>
+</div>
+</lightning-card>
+</template>

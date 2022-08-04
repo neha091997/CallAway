@@ -1,0 +1,148 @@
+<template>
+    <div class="slds-m-around_large">
+         <div if:true={isLoaded} class="slds-is-relative">
+            <lightning-spinner
+                alternative-text="Loading..." variant="brand">
+            </lightning-spinner>
+        </div>
+    </div>
+<lightning-card style="background-color:#25d9d3;">
+<!--<div class="header">
+<a href="#default" class="logo"><img src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/082014/2011callawaylogo.png?itok=fcFpcbr4" ></img></a>
+<div class="header-right">
+<a class="active" href="#home">Home</a>
+<a href="#contact" class="contact">Contact</a>
+<a href="#about" class="about1">About</a> -->
+<!--<a class="doctor" href="https://www.salesforce.com/login">Doctor's Appointment </a>
+<a class="enemities" href="https://www.trailhead.com">Get Enemities </a> -->
+<!--<a class="partnerlogin" href="https://enphasecom-developer-edition.ap16.force.com/CallAwayEmergency/partnerlogin"> Partner Login</a> -->
+<!--<a class="ambulance" href="https://www.google.com">Book An Ambulance </a> -->
+<!--</div>
+</div> -->
+<div class="container fadeInDown wrapper" style="width:1300px;">
+<img src={homeimage} >
+<div class="section bg1 top-left">
+<h1 class="revealUp">Healthcare
+High-Value Healthcare Services </br> Payers & Providers</h1>
+</div> </br>
+<div class="top-right">
+<div>
+<lightning-button variant="success" label="Book Service" title="Book Service" onclick={ambulanceRedirect}></lightning-button>
+</div></br>
+<div>
+<!-- <lightning-button label="Book Enemities" title="Book an Ambulance"  onclick={ambulanceRedirect} ></lightning-button> -->
+</div></br>
+<div >
+<!-- <lightning-button variant="Error" label="Doctor's Appointment" title="Book an Ambulance"  onclick={ambulanceRedirect}></lightning-button> -->
+</div>
+</div>
+</div>
+
+
+</br></br></br></br></br>
+
+<center>
+<div style="padding-left:130px;padding-right:150px;" class="fadeInDown wrapper">
+<span style="font-size:50px;"><b><u> Healthcare Challenge </u></b> </span></br></br></br></br>
+<p style="font-size:20px;padding-left:190px;padding-right:210px;">
+U.S. healthcare spending is twice that of any other country in the world.
+As we approach the four trillion dollar mark, annual healthcare costs account for almost 18% of our GDP, 
+resulting in a lot of inefficiency and waste, as well as many dissatisfied members, patients, physicians, 
+and care staff members. Northridge can help.</p>
+</div></br></br></br>
+</center>
+<!--  <div class="slds-m-around_medium" >
+
+
+</div>
+<div style="background-color:red;height:50px;margin-left:200px;">
+<a href="" >
+
+<p style="font-size: 20px;text-align:center;"> </p>
+</a>
+</div>
+</br>
+
+<div style="background-color:green;height:50px;margin-left:200px;">
+<a href="">
+<p style="font-size: 20px;text-align:center;"> </p>
+</a>
+</div>
+</br>
+
+<div style="background-color:yellow;height:50px;margin-left:200px;">
+<a href="">
+<p style="font-size: 20px;text-align:center;"> </p>
+</a> 
+</div></br></br> -->
+</br>
+<!--<div class="slds-grid slds-gutters" >
+<div class="slds-col" style="background-color:grey;height:260px;width:160px;">
+<strong>  Ambulance Service </strong></br>
+
+<p>They can provide first aid, emergency care, various medicines and life support, and carry patients to hospital.
+Ambulances normally have emergency medical technicians (EMTs) and paramedics who work on them. 
+They carry medicines and special equipment that can keep people alive.</p>
+</div>
+<div class="slds-col" style="background-color:pink;height:260px;width:160px;">
+<strong>  Appointment Service </strong></br>
+<p>If you need an appointment on the same day, call early to see if your healthcare professional can fit you in. 
+If your regular healthcare professional isn’t available, ask the office for a recommendation to another health service that can help with your issues.
+Sometimes, a medical centre will have another doctor who you could see. If you make your appointment early, you will have a better chance of seeing the healthcare professional of your choice.</p>
+</div>
+<div class="slds-col" style="background-color:green;height:260px;width:160px;">
+<strong>  Enemities </strong></br>
+<span>The types of hospitals in general are private hospitals and hospitals run by the government.
+Private hospitals basically are run by an individual or a group of physicians or by any private organization. 
+Another kind of hospital prevails in India and it is the semi-government hospital that is run by both the government and the private organization</span>
+</div>
+</div>  -->
+
+<center>
+<!-- <div style="height:200px;width:800px;" >
+<lightning-carousel >
+<lightning-carousel-image
+src = "{amulanceimage}"
+header = "LWC Component Library"
+description = "Find the Lightning Web Component (LWC) UI Developer Guide, Component Reference and Aura Documentation Including Buttons, Icons, Input Fields &mp; Much More.."
+alternative-text = "Component Library in LWC"
+href = "https://www.w3web.net/find-the-lightning-web-component-library/" target="_blank">
+</lightning-carousel-image>
+<lightning-carousel-image
+src = "{appoint}"
+header = "Developer Guide & Lightning Design System (SLDS)"
+description = "A Collection of Lightning Component Library, Developer Guide and Lightning Design System (SLDS)."
+alternative-text = "A Collection of Lightning Component Library."
+href = "https://www.w3web.net/lightning-component-library-developer-guide/" target="_blank">
+</lightning-carousel-image>
+<lightning-carousel-image
+src = "{enemities}"
+header = "template if:true and template if:false condition in LWC"
+description = "How do you use template if:true and template if:false condition to display content in lightning web component – LWC."
+alternative-text = "if and else condition in lwc."
+href = "https://www.w3web.net/if-and-else-condition-in-lwc/" target="_blank">
+</lightning-carousel-image>
+</lightning-carousel>
+
+</div> -->
+
+</center>
+</br>
+</br>
+
+<div >
+<img src={docimage} style="height:550px;width:650px;padding-left:30px;"/>
+<div style="right: 0px;width: 400px;height: 280px;position:absolute;top:1000px;margin-right:120px;" class="fadeInDown wrapper">
+    <center>
+<b><u><p style="font-size:30px"> How We Provide Value </p></u></b></br>
+</center>
+<p style="font-size:20px"> Northridge Group equips our best-in-class clinical and healthcare experts with industry-leading analytics tools to drive efficiencies, 
+reduce waste and improve the healthcare experience. Through data analytics, process optimization and clinical expertise,
+ we help our healthcare clients navigate critical pain points so that they can get back to serving the interests of their patients and 
+ members.</p>
+    
+</div>
+</div>
+
+</lightning-card>
+</template>

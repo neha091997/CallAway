@@ -1,0 +1,210 @@
+<template>
+	<lightning-button variant="brand" size="xxx-Large" label="Go Back" icon-name="utility:back" alternative-text="Go Back" onclick={returnBack}></lightning-button>
+<lightning-card>
+	<h1>Welcome to {HospitalName} </h1>
+	</br>
+	<lightning-button variant="brand" label="Add Patient" title="Add" onclick={AddPatientpopup}
+		style="text-align:right">
+	</lightning-button>
+	<div class="section-container">
+
+
+		<div class="section">
+			<h2>Aminities</h2>
+			<span class="section-span"><p>nstead of using the standard data table tag (lightning-data table)
+					 to display the data table, we will create a custom data table to use the custom data types.
+					  The custom data table (customDatatable) is used as a child-parent web component (app). 
+					  The custom data table components make use of the standard LightningDatatable class. 
+					  The custom data table component can be used to define multiple cu</p></span>
+			<lightning-button label="Book Aminities" title="titleName" onclick={handleEnimites}></lightning-button>
+		</div>
+
+		<div class="section">
+			<h2>Doctor Appointement</h2>
+			<span class="section-span"><p>A doctor appointment  is CallAway that is especially meant to help patients manage and schedule appointments with the doctors or plan a video call or opt for a real-time chat.
+An increasing number of patients are now looking for healthcare services that offer digital competencies like online communication, remote monitoring, e-prescriptions, virtual appointments, etc. These apps are crucial for any patient while choosing a healthcare service.
+</p></span>
+			<lightning-button label="Book Doctor Appointement" title="titleName" onclick={handleAppointment}>
+			</lightning-button>
+		</div>
+	</div>
+
+</lightning-card>
+
+
+<template if:true={Ambulancemodal}>
+
+	<section role="dialog" class="slds-modal slds-fade-in-open">
+		<div class="slds-modal__container">
+			<header class="slds-modal__header">
+				<span class="slds-modal__close">
+                    <lightning-icon icon-name="utility:close"  onclick={closeAmbulancePicker} ></lightning-icon>
+                </span>
+				<h2 class="slds-text-heading_medium slds-hyphenate">Please Select Date and Time</h2>
+
+			</header>
+			<div class="slds-modal__content slds-p-around_medium">
+
+				<lightning-input type="datetime" variant="standard" name="ambulancedate"
+					placeholder="select date and time">
+				</lightning-input>
+				<lightning-combobox class="dropdown" name="progress" label="Select Van Type" value={selectVan}
+					placeholder="Select Van" options={vanoptions} onchange={handleChangevan}>
+				</lightning-combobox>
+
+				<p><b>Available Patients</b></p>
+				<template for:each={patientsList} for:item="acc">
+					<p key={acc.Id} style="display:inline">
+						<lightning-button variant="base-inverse" size="xxx-large" icon-name="utility:add"
+							label={acc.Name} value={acc.Id} onclick={selectPatient}></lightning-button>&nbsp;
+					</p>
+
+
+				</template>
+
+
+			</div>
+			<footer class="slds-modal__footer">
+				<lightning-button label="Cancel" title="Cancel" onclick={closeAmbulancePicker}
+					class="slds-m-right_small"></lightning-button>
+				<lightning-button label="Confirm" varient="Brand" title="Confirm" onclick={bookAmbulance}
+					class="slds-m-right_small" disabled={isConfirmed}></lightning-button>
+
+			</footer>
+		</div>
+	</section>
+	<div class="slds-backdrop slds-backdrop_open"></div>
+
+</template>
+<template if:true={aminities}>
+
+	<section role="dialog" class="slds-modal slds-fade-in-open">
+		<div class="slds-modal__container">
+			<header class="slds-modal__header">
+				<span class="slds-modal__close">
+                    <lightning-icon icon-name="utility:close"  onclick={closeEnimitesPicker} ></lightning-icon>
+                </span>
+				<h2 class="slds-text-heading_medium slds-hyphenate">Please Select Date and Time</h2>
+
+			</header>
+			<div class="slds-modal__content slds-p-around_medium">
+
+				<lightning-combobox class="dropdown" name="progress" label="Select Amenities" value={selectamenities}
+					placeholder="Select Van" options={amenitiesoptions} onchange={handleChangeamenities}>
+				</lightning-combobox>
+
+
+				<lightning-input type="datetime" variant="standard" name="amenitiesdate" placeholder="">
+				</lightning-input>
+				<p>Available Patients</p>
+				<template for:each={patientsList} for:item="acc">
+					<p key={acc.Id} style="display:inline">
+						<lightning-button variant="base-inverse" size="xxx-large" icon-name="utility:add"
+							label={acc.Name} value={acc.Id} onclick={selectPatient}></lightning-button>&nbsp;
+					</p>
+
+
+				</template>
+
+
+			</div>
+			<footer class="slds-modal__footer">
+				<lightning-button label="Cancel" title="Cancel" onclick={closeEnimitesPicker}
+					class="slds-m-right_small"></lightning-button>
+
+				<lightning-button label="Confirm" varient="Brand" title="Confirm" onclick={bookamenities}
+					class="slds-m-right_small" disabled={isConfirmed}></lightning-button>
+
+			</footer>
+		</div>
+	</section>
+	<div class="slds-backdrop slds-backdrop_open"></div>
+
+</template>
+<template if:true={appointment}>
+
+	<section role="dialog" class="slds-modal slds-fade-in-open">
+		<div class="slds-modal__container">
+			<header class="slds-modal__header">
+				<span class="slds-modal__close">
+                    <lightning-icon icon-name="utility:close"  onclick={closeAppointmentPicker} ></lightning-icon>
+                </span>
+				<h2 class="slds-text-heading_medium slds-hyphenate">Please Select Date and Time</h2>
+
+			</header>
+			<div class="slds-modal__content slds-p-around_medium">
+
+				<lightning-input type="datetime" variant="standard" name="appoinmentdate" placeholder="">
+				</lightning-input>
+				<p><b>Available Patients</b></p>
+				<template for:each={patientsList} for:item="acc">
+					<p key={acc.Id} style="display:inline">
+						<lightning-button variant="base-inverse" size="xxx-large" icon-name="utility:add"
+							label={acc.Name} value={acc.Id} onclick={selectPatient}></lightning-button>&nbsp;
+					</p>
+
+
+				</template>
+				<p><b>Available Doctors</b></p>
+				<template for:each={doctors} for:item="doc">
+					<p key={doc.Id} style="display:inline">
+						<lightning-button variant="base-inverse" size="xxx-large" icon-name="utility:add"
+							label={doc.Name} value={doc.Id} onclick={selectdoctor}></lightning-button>&nbsp;
+					</p>
+
+
+				</template>
+
+
+
+			</div>
+			<footer class="slds-modal__footer">
+				<lightning-button label="Cancel" title="Cancel" onclick={closeAppointmentPicker}
+					class="slds-m-right_small"></lightning-button>
+				<lightning-button label="Confirm" varient="Brand" title="Confirm" onclick={bookAppointment}
+					class="slds-m-right_small" disabled={isConfirmed}></lightning-button>
+
+			</footer>
+		</div>
+	</section>
+	<div class="slds-backdrop slds-backdrop_open"></div>
+
+</template>
+<template if:true={patientmodal}>
+
+	<section role="dialog" class="slds-modal slds-fade-in-open">
+		<div class="slds-modal__container">
+			<header class="slds-modal__header">
+				<span class="slds-modal__close">
+                    <lightning-icon icon-name="utility:close"  onclick={closepatientPicker} ></lightning-icon>
+                </span>
+				<h2 class="slds-text-heading_medium slds-hyphenate">Add New Patient</h2>
+
+			</header>
+			<form>
+				<div class="slds-modal__content slds-p-around_medium">
+
+					<lightning-input type="text" variant="standard" name="NewPatientName" label="Patient Name">
+					</lightning-input>
+					<lightning-input type="text" variant="standard" name="NewPatientGender" label="Gender">
+					</lightning-input>
+					<lightning-input type="text" variant="standard" name="NewPatientDisease" label="Disease">
+					</lightning-input>
+					<lightning-input type="number" variant="standard" name="NewPatientAge" label="Age">
+					</lightning-input>
+				</div>
+				<footer class="slds-modal__footer">
+					<lightning-button label="Cancel" title="Cancel" onclick={closepatientPicker}
+						class="slds-m-right_small"></lightning-button>
+					<lightning-button label="Confirm" title="Confirm" onclick={Addpatient} class="slds-m-right_small">
+					</lightning-button>
+
+				</footer>
+			</form>
+		</div>
+	</section>
+	<div class="slds-backdrop slds-backdrop_open"></div>
+
+</template>
+
+</template>
